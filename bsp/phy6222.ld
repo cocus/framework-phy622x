@@ -39,7 +39,7 @@ SECTIONS
     } > sram : text
 
     _sdata = ABSOLUTE(.);
-    .text : {
+    .text_sram : {
         _stextram = ABSOLUTE(.);
 
         *phy6222_start.o(.text)
