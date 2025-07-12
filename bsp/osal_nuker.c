@@ -287,7 +287,7 @@ __attribute__((naked)) static void gcc_shut_warn(void *arg)
         "B _hard_fault\n");
 }
 
-__attribute__((naked)) static void Custom_HardFault_Handler(void)
+static void Custom_HardFault_Handler(void)
 {
     uint32_t arg = 0;
     gcc_shut_warn(&arg);

@@ -2,6 +2,12 @@
 
 This is a re-implementation of PhyPlus' SDK, aiming to be aligned to the **HAL** libraries from STM.
 
+This codebase provides a PlatformIO framework, but it also works standalone.
+
+## Standalone usage
+
+See `Makefile`, where the `examples/simple_no_platformio/main.c` is compiled against the same source that PlatformIO would.
+
 ## Release note
 
 Nothing for now.
