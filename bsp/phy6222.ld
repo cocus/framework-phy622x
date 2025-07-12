@@ -14,7 +14,7 @@ MEMORY
   jumptbl (rw)  : ORIGIN = 0x1fff0000, LENGTH = 0x00400
   gcfgtbl (rw)  : ORIGIN = 0x1fff0400, LENGTH = 0x00400
   sram    (rwx) : ORIGIN = 0x1fff1838, LENGTH = 0x0E7C8
-  flash   (rx)  : ORIGIN = 0x11010100, LENGTH = 0x1ff00
+  flash   (rx)  : ORIGIN = 0x11010100, LENGTH = 0x6FEFF
   sram2   (rwx) : ORIGIN = 0x20000000, LENGTH = 0x10000
   sram3   (rwx) : ORIGIN = 0x20010000, LENGTH = 0x02000
   sram4   (rwx) : ORIGIN = 0x20012000, LENGTH = 0x00800
@@ -59,7 +59,7 @@ SECTIONS
         *phy_sec_ext.o(.text .text.*)
 
         *libgcc.a:*.o(.text .text.*)
-   
+
         _etextram = ABSOLUTE(.);
     } > sram : text
 
@@ -83,11 +83,11 @@ SECTIONS
     .irq_stack : {
         *(g_irqstack_base)
     } > sram
-	   
+
     g_stack = ORIGIN(sram) + LENGTH(sram);
 
     .xip : {
-        _stext = ABSOLUTE(.);   
+        _stext = ABSOLUTE(.);
 
         *.o(_func_xip_code_)
         *.o(_section_xip_code_)
@@ -97,8 +97,8 @@ SECTIONS
     } > flash : xip
 
     .rodata : {
-       *(.rodata .rodata.*)
-       *(.fixup)
+        *(.rodata .rodata.*)
+        *(.fixup)
         *(.gnu.warning)
         *(.rodata .rodata.*)
         *(.gnu.linkonce.t.*)
@@ -124,11 +124,11 @@ SECTIONS
         *(.ARM.exidx*)
         __exidx_end = ABSOLUTE(.);
     } > flash : rodata
- 
+
     ._sjtblsstore : {
        _sjtblss = ABSOLUTE(.);
     } > flash : rodata
- 
+
     /* Stabs debugging sections. */
     .stab 0 : { *(.stab) }
     .stabstr 0 : { *(.stabstr) }
@@ -142,5 +142,4 @@ SECTIONS
     .debug_line 0 : { *(.debug_line) }
     .debug_pubnames 0 : { *(.debug_pubnames) }
     .debug_aranges 0 : { *(.debug_aranges) }
-    
 }
