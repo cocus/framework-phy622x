@@ -42,7 +42,7 @@ extern "C"
  /*!< Interrupt Number Definition */
 typedef enum IRQn
 {
-/******  Cortex-M3 Processor Exceptions Numbers ***************************************************/
+/******  Cortex-M0 Processor Exceptions Numbers ***************************************************/
   NonMaskableInt_IRQn         = -14,    /*!<  2 Non Maskable Interrupt                            */
   HardFault_IRQn              = -13,    /*!<  3 HardFault Interrupt                               */
   SVCall_IRQn                 = -5,     /*!< 11 SV Call Interrupt                                 */
